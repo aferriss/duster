@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxGpuParticles.h"
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -26,4 +27,8 @@ class ofApp : public ofBaseApp{
     ofImage img;
     ofEasyCam cam;
     void onParticlesUpdate(ofShader& shader);
+    ofFbo fbo;
+    int disp;
+    bool save;
+    int go;
 };

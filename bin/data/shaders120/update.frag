@@ -9,6 +9,11 @@ uniform sampler2DRect tex0;
 uniform vec3 mouse;
 uniform float radiusSquared;
 uniform float elapsed;
+uniform float go;
+
+float rand(vec2 co){
+    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+}
 
 void main()
 {
@@ -37,7 +42,8 @@ void main()
     
     // move
 //    pos += elapsed * vel;
-    
+    float r = 1.0 - 2.0*rand(gl_TexCoord[0].st);
+    pos.y += r*0.05*go;
     gl_FragData[0] = vec4(pos, 1.0);
     gl_FragData[1] = vec4(vel, 0.0);
 }
